@@ -16,3 +16,6 @@ def leer_opcion():
             if 1 <= opcion_num <= 6:
                 return opcion_num
         print("Opción no válida. Intente nuevamente.")
+
+def validar_titulo(titulo):
+    return titulo.strip() != ""
