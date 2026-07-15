@@ -62,3 +62,8 @@ def buscar_libro(lista_libros, titulo_buscar):
         if libro["titulo"] == titulo_buscar:
             return indice
     return -1
+
+def actualizar_disponibilidad(lista_libros):
+    for libro in lista_libros:
+        libro["disponible"] = libro["copias"] >= 1
+    print("Disponibilidad actualizada para todos los libros.")
