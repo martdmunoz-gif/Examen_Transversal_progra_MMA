@@ -26,6 +26,12 @@ def validar_copias(copias_texto):
     copias = int(copias_texto)
     return copias >= 0
 
+def validar_prestamo(prestamo_texto):
+    if not prestamo_texto.isdigit():
+        return False
+    prestamo = int(prestamo_texto)
+    return prestamo > 0
+
 def agregar_libro(lista_libros):
     titulo = input("Título del libro: ")
     copias_texto = input("Cantidad de copias: ")
@@ -51,9 +57,8 @@ def agregar_libro(lista_libros):
     lista_libros.append(libro)
     print(f"Libro '{libro['titulo']}' registrado correctamente.")
 
-
-def validar_prestamo(prestamo_texto):
-    if not prestamo_texto.isdigit():
-        return False
-    prestamo = int(prestamo_texto)
-    return prestamo > 0
+def buscar_libro(lista_libros, titulo_buscar):
+    for indice, libro in enumerate(lista_libros):
+        if libro["titulo"] == titulo_buscar:
+            return indice
+    return -1
