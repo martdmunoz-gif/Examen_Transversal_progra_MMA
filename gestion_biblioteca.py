@@ -25,3 +25,9 @@ def validar_copias(copias_texto):
         return False
     copias = int(copias_texto)
     return copias >= 0
+
+def validar_prestamo(prestamo_texto):
+    if not prestamo_texto.isdigit():
+        return False
+    prestamo = int(prestamo_texto)
+    return prestamo > 0
