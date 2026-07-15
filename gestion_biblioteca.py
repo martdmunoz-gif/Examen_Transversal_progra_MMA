@@ -19,3 +19,9 @@ def leer_opcion():
 
 def validar_titulo(titulo):
     return titulo.strip() != ""
+
+def validar_copias(copias_texto):
+    if not copias_texto.isdigit():
+        return False
+    copias = int(copias_texto)
+    return copias >= 0
