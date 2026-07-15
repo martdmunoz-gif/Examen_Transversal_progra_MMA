@@ -82,3 +82,45 @@ def mostrar_libros(lista_libros):
         print(f"Préstamo: {libro['prestamo']}")
         print(f"Estado: {estado}")
         print("********************************************")
+
+def main():
+    libros = []
+    while True:
+        mostrar_menu()
+        opcion = leer_opcion()
+
+        if opcion == 1:
+            agregar_libro(libros)
+        elif opcion == 2:
+            titulo_buscar = input("Ingrese el título a buscar: ")
+            posicion = buscar_libro(libros, titulo_buscar)
+            if posicion == -1:
+                print(f"El libro '{titulo_buscar}' no se encuentra registrado.")
+            else:
+                libro = libros[posicion]
+                print(f"Libro encontrado en la posición {posicion}.")
+                print(f"Título: {libro['titulo']}")
+                print(f"Copias: {libro['copias']}")
+                print(f"Préstamo: {libro['prestamo']}")
+                estado = "DISPONIBLE" if libro['disponible'] else "SIN COPIAS"
+                print(f"Estado: {estado}")
+        elif opcion == 3:
+            titulo_eliminar = input("Ingrese el título del libro a eliminar: ")
+            posicion = buscar_libro(libros, titulo_eliminar)
+            if posicion == -1:
+                print(f"El libro '{titulo_eliminar}' no se encuentra registrado.")
+            else:
+                libros.pop(posicion)
+                print(f"Libro '{titulo_eliminar}' eliminado correctamente.")
+        elif opcion == 4:
+            actualizar_disponibilidad(libros)
+        elif opcion == 5:
+            mostrar_libros(libros)
+        elif opcion == 6:
+            print("Gracias por usar el sistema. Vuelva Pronto")
+            break
+        print()
+
+
+if __name__ == "__main__":
+    main()
