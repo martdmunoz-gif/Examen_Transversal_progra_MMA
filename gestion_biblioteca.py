@@ -67,3 +67,18 @@ def actualizar_disponibilidad(lista_libros):
     for libro in lista_libros:
         libro["disponible"] = libro["copias"] >= 1
     print("Disponibilidad actualizada para todos los libros.")
+
+def mostrar_libros(lista_libros):
+    actualizar_disponibilidad(lista_libros)
+    print("=== LISTA DE LIBROS ===")
+    if not lista_libros:
+        print("No hay libros registrados.")
+        return
+
+    for libro in lista_libros:
+        estado = "DISPONIBLE" if libro["disponible"] else "SIN COPIAS"
+        print(f"Título: {libro['titulo']}")
+        print(f"Copias: {libro['copias']}")
+        print(f"Préstamo: {libro['prestamo']}")
+        print(f"Estado: {estado}")
+        print("********************************************")
